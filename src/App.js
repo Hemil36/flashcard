@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import FlashcardContainer from './FlashCardContainer';
+import AdminDashboard from './AdminDashBoard';
+import Navbar from './components/Navbar';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import NewTopic from './components/NewTopic';
+import NewFlashCard from './components/newFlashCard';
+import Topic from './components/Topic';
+import EditCard from './components/EditCard';
+import Quiz from './components/Quiz';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+  return(
+    <div className='h-full flex flex-col'>
+
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+
+    
+      <Route path='/register' element={<Login />} />
+      <Route path='/' element={<AdminDashboard />} />
+      <Route path='/:topic' element={<Topic />} />
+      <Route path='/:topic/:id/edit' element={<EditCard />} />
+      <Route path='/:topic/quiz' element={<Quiz />} />
+      <Route path='/:topic/new' element={<NewFlashCard />} />
+      <Route path='/:topic/flashcards' element={<FlashcardContainer />} />
+      <Route path='/register' element={<Register />} />
+      <Route path='/newtopic' element={<NewTopic />} />
+    </Routes>
+    </BrowserRouter>
     </div>
-  );
+
+
+  )
 }
 
 export default App;
