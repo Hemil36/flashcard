@@ -11,8 +11,6 @@ const Register = () => {
                 username: e.target.username.value,
                 email: e.target.email.value,
                 password: e.target.password.value
-            },{
-              withCredentials: true
             })
             console.log(response)
             toast.success('User registered successfully')
