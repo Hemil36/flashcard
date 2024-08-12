@@ -1,14 +1,32 @@
 "use client"
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import toast from 'react-hot-toast'
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser } from '../UserSlice'
 
 const Login = () => {
-
-    const onSubmit = (e) => {
+const dispatch = useDispatch()
+const navigate = useNavigate() ;
+    const onSubmit = async (e) => {
         e.preventDefault()
-        const email = e.target.email.value
-        const password = e.target.password.value
-        console.log(email + ' ' + password)
+        try{
+
+        const response = await axios.post('http://localhost:5000/api/users/login', {
+            email: e.target.email.value,
+            password: e.target.password.value
+        },{
+          withCredentials: true
+        })
+        console.log(response)
+        dispatch(setUser(response.data));
+        navigate('/')
+      }catch(err){
+        console.log(err)
+        toast.error('Invalid credentials')
+      }
+
     }
 
 
