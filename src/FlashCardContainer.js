@@ -20,7 +20,7 @@ const FlashcardContainer = () => {
   useEffect(() => {
           
     const fetchFlashcards = async () => {
-      const response = await axios.get("http://localhost:5000/api/flashcards/" + topic,{
+      const response = await axios.get("https://flashbackend.vercel.app/api/flashcards/" + topic,{
         withCredentials: true,
       });
       setFlashcards(response.data);

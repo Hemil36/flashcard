@@ -12,7 +12,7 @@ const EditCard = () => {
 
   useEffect(() => {
     const fetchCard = async () => {
-      const response = await axios.get(`http://localhost:5000/api/flashcards/${topic}/${id}`, {
+      const response = await axios.get(`https://flashbackend.vercel.app/api/flashcards/${topic}/${id}`, {
         withCredentials: true,
       });
       setQuestion(response.data[0].question);
@@ -28,7 +28,7 @@ const EditCard = () => {
       question: Question,
       answer: Answer,
     }
-   await axios.put(`http://localhost:5000/api/flashcards/${id}`, updatedCard, {
+   await axios.put(`https://flashbackend.vercel.app/api/flashcards/${id}`, updatedCard, {
       withCredentials: true,
     })
     .then((response) => {
@@ -46,7 +46,7 @@ const EditCard = () => {
   const onDelete = async (e) => {
     e.preventDefault();
     console.log(id)
-    await axios.delete(`http://localhost:5000/api/flashcards/${id}`, {
+    await axios.delete(`https://flashbackend.vercel.app/api/flashcards/${id}`, {
       withCredentials: true,
     })
     .then((response) => {

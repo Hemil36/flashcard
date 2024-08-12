@@ -10,7 +10,7 @@ const NewFlashCard = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try{
-      const response = await axios.post('http://localhost:5000/api/flashcards', {
+      const response = await axios.post('https://flashbackend.vercel.app/api/flashcards', {
         question: e.target.question.value,
         answer: e.target.answer.value,
         topic_id: topic,

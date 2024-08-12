@@ -14,7 +14,7 @@ const Topic = () => {
       useEffect(() => {
           
           const fetchFlashcards = async () => {
-            const response = await axios.get("http://localhost:5000/api/flashcards/" + topic,{
+            const response = await axios.get("https://flashbackend.vercel.app/api/flashcards/" + topic,{
               withCredentials: true,
             });
             setFlashcards(response.data);
@@ -26,7 +26,7 @@ const Topic = () => {
       useEffect(()=>{
         const fetchTopic = async () => {
           try{
-          const response = await axios.get(`http://localhost:5000/api/topics/topic/${topic}`, {
+          const response = await axios.get(`https://flashbackend.vercel.app/api/topics/topic/${topic}`, {
             withCredentials: true,
           });
           setName(response.data[0].topic_name)
@@ -41,7 +41,7 @@ const Topic = () => {
       const onDelete = async (e) => {
         e.preventDefault();
         console.log(topic)
-        await axios.delete(`http://localhost:5000/api/topics/${topic}`, {
+        await axios.delete(`https://flashbackend.vercel.app/api/topics/${topic}`, {
           withCredentials: true,
         })
         .then((response) => {

@@ -14,7 +14,7 @@ const NewTopic = () => {
     console.log(topic, user);
     try{
     const response = await axios.post(
-      "http://localhost:5000/api/topics/new",
+      "https://flashbackend.vercel.app/api/topics/new",
       {
         topic_name: topic,
         user_id: user,

@@ -13,7 +13,7 @@ const AdminDashboard = ({  }) => {
   useEffect(() => {
 
     const fetchTopics = async () => {
-      const response = await axios.get(`http://localhost:5000/api/topics/${userId}`);
+      const response = await axios.get(`https://flashbackend.vercel.app/api/topics/${userId}`);
       
       setTopics(response.data);
       console.log(response.data);

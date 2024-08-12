@@ -7,7 +7,7 @@ const Register = () => {
     const onSubmit = async (e) => {
         e.preventDefault()
         try{
-            const response = await axios.post('http://localhost:5000/api/users/register', {
+            const response = await axios.post('https://flashbackend.vercel.app/api/users/register', {
                 username: e.target.username.value,
                 email: e.target.email.value,
                 password: e.target.password.value
